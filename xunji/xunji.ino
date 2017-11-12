@@ -3,7 +3,7 @@
 #define k 0.85    // k(0-10)
 
 /*--------------全局变量部分-----------------*/
-int IN[4]={3,5,6,9};
+int IN[5]={-1,3,5,6,9};
 int p1,p2,p;
 int last_proportional = 0;
 long integral = 0;
@@ -26,7 +26,7 @@ int readl()
 /**
   * 函数motor(int speed_left,speed_right)用于控制电机转动
   * 右电机接IN1、IN2，对应nano上的 D3、D5 引脚
-  * 左电机接IN1、IN2，对应nano上的 D6、D9 引脚
+  * 左电机接IN3、IN4，对应nano上的 D6、D9 引脚
   */
 void motor(int speed_left,int speed_right)
 { 
@@ -64,23 +64,23 @@ void pid(int max_speed){
   power_difference = proportional*k;// + integral/20000 + derivative*3/4;
 //power_difference = proportional*5;
   if(power_difference > max_speed)
-  power_difference = max_speed;
+    power_difference = max_speed;
   if(power_difference < -max_speed)
-  power_difference = -max_speed;
+    power_difference = -max_speed;
   if(power_difference<0)
-  motor((max_speed+power_difference),max_speed);
+    motor((max_speed+power_difference),max_speed);
   else
-  motor(max_speed,(max_speed-power_difference));
+    motor(max_speed,(max_speed-power_difference));
 }
 void setup() {
   // put your setup code here, to run once:
-pinMode(IN[0],OUTPUT);
-pinMode(IN[1],OUTPUT);
-pinMode(IN[2],OUTPUT);
-pinMode(IN[3],OUTPUT);
-Serial.begin(9600);
+  pinMode(IN[0],OUTPUT);
+  pinMode(IN[1],OUTPUT);
+  pinMode(IN[2],OUTPUT);
+  pinMode(IN[3],OUTPUT);
+  Serial.begin(9600);
 }
 void loop() {
   // put your main code here, to run repeatedly:
-   pid(Vo);
+  pid(Vo);
 }
