@@ -27,34 +27,33 @@ int readl()
   * 函数motor(int speed_left,speed_right)用于控制电机转动
   * 右电机接IN1、IN2，对应nano上的 D3、D5 引脚
   * 左电机接IN3、IN4，对应nano上的 D6、D9 引脚
+  * speed的范围为 -255~+255
   */
 void motor(int speed_left,int speed_right)
 { 
-  int s1,s2,s3,s4;
   if(speed_right>0)
   {
-    s1=0;
-    s2=1;
+    digitalWrite(IN[1],LOW);
+    analogWrite(IN[2],speed_right);
   }
   else
   {
-    s1=1;
-    s2=0;
+    digitalWrite(IN[2],LOW);
+    analogWrite(IN[1],-speed_right);
   }
-  digitalWrite(IN[s1],LOW);
-  analogWrite(IN[s2],abs(speed_right));
+
   if(speed_left>0)
   {
-    s3=2;
-    s4=3;
+    digitalWrite(IN[3],LOW);
+    analogWrite(IN[4],speed_left);
   }
-  else{
-    s3=3;
-    s4=2;
+  else
+  {
+    digitalWrite(IN[4],LOW);
+    analogWrite(IN[3],-speed_left);
   }
-  digitalWrite(IN[s3],LOW);
-  analogWrite(IN[s4],abs(speed_left));
 }
+
 
 void pid(int max_speed){
   proportional = readl();
@@ -72,12 +71,13 @@ void pid(int max_speed){
   else
     motor(max_speed,(max_speed-power_difference));
 }
+
 void setup() {
   // put your setup code here, to run once:
-  pinMode(IN[0],OUTPUT);
   pinMode(IN[1],OUTPUT);
   pinMode(IN[2],OUTPUT);
   pinMode(IN[3],OUTPUT);
+  pinMode(IN[4],OUTPUT);
   Serial.begin(9600);
 }
 void loop() {
