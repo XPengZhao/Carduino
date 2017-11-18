@@ -61,7 +61,6 @@ void pid(int max_speed){
   integral+= proportional;
   last_proportional = proportional;
   power_difference = proportional*k;// + integral/20000 + derivative*3/4;
-//power_difference = proportional*5;
   if(power_difference > max_speed)
     power_difference = max_speed;
   if(power_difference < -max_speed)
