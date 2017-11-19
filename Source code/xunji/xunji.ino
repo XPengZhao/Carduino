@@ -55,7 +55,7 @@ void motor(int speed_left,int speed_right)
 }
 
 
-void p_control(int inital_speed){
+void pid(int inital_speed){
   proportional = readl();
   //derivative = proportional-last_proportional;
   //integral+= proportional;
