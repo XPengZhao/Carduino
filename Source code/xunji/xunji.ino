@@ -4,7 +4,7 @@
 
 /*--------------全局变量部分-----------------*/
 int IN[5]={-1,3,5,6,9};
-int p1,p2,p;
+int Signal_left,Signal_right,p;
 int last_proportional = 0;
 long integral = 0;
 int proportional,derivative,power_difference;
@@ -17,9 +17,9 @@ int proportional,derivative,power_difference;
   */
 int readl()
 {
-  p1=analogRead(A6);
-  p2=analogRead(A5);
-  p=p1-p2;
+  Signal_left=analogRead(A6);
+  Signal_right=analogRead(A5);
+  p=Signal_left-Signal_right;
   return p;
 }
 
@@ -55,12 +55,10 @@ void motor(int speed_left,int speed_right)
 }
 
 
-void pid(int inital_speed){
+void p_concrol(int inital_speed)
+{
   proportional = readl();
-  //derivative = proportional-last_proportional;
-  //integral+= proportional;
-  //last_proportional = proportional;
-  power_difference = proportional*k;// + integral/20000 + derivative*3/4;
+  power_difference = proportional*k;
   if(power_difference > inital_speed)
     power_difference = inital_speed;
   if(power_difference < -inital_speed)
