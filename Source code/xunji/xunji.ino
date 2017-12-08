@@ -1,8 +1,7 @@
 /*---------------宏定义部分------------------*/
 #define Vo 130    // Vo(0-255)
-#define Kp 0.85    // Kp(0-10)
-#define Ki 
-#define Kd
+#define k 0.85    // k(0-10)
+
 /*--------------全局变量部分-----------------*/
 int IN[5]={-1,3,5,6,9};
 int Signal_left,Signal_right,p;
@@ -55,15 +54,11 @@ void motor(int speed_left,int speed_right)
   }
 }
 
-/**
- *  p_control的核心算法是基于pid算法的p参数控制，省略了积分项与微分项
- *  误差信号的来源是两个光传感器的之间的误差值。
- *  由控制的方块图可知，控制信号的来源是依据误差信号而来的，为 Kp*proportional
- */
+
 void p_concrol(int inital_speed)
 {
   proportional = readl();
-  power_difference = proportional*Kp;
+  power_difference = proportional*k;
   if(power_difference > inital_speed)
     power_difference = inital_speed;
   if(power_difference < -inital_speed)
