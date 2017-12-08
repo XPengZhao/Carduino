@@ -1,0 +1,35 @@
+1、句法：
+   void digitalWrite (uint8_t pin, uint8_t value)；
+2、描述：
+   向一个数字引脚写入高电平(HIGH)或低电平(LOW)。 在写引脚之前, 将引脚设置为OUTPUT模式与
+INPUT模式导致的结果将不同。常用的是OUTPUT模式。
+   如果引脚通过PinMode()被配置为OUTPUT，则其电压将被设置为相应的值：HIGH为5V（在3.3V电路板
+上为3.3V），LOW为0V（接地）。
+   如果该引脚配置为INPUT，则digitalWrite()将使能（HIGH）或禁止（LOW）输入引脚上的内部上拉
+电阻。建议将pinMode()设置为INPUT_PULLUP以启用内部上拉电阻。请参阅数字引脚教程以获取更多信息。
+   如果不将pinMode()设置为OUTPUT，并将LED连接到引脚，则在调用digitalWrite(HIGH)时，
+LED可能会变暗。在不明确设置pinMode()的情况下，digitalWrite()将使能内部上拉电阻，这就像一个大的限流电阻。
+3、参数:
+   pin: 引脚编号
+   value: HIGH 或 LOW
+4、返回值：
+   无。
+5、示例代码:
+   目标:将数字引脚13配置为输出，并以1秒的速度在高电平和低电平之间交替切换。
+
+/*----------------------------------------------------------------------------*/
+void setup()
+{
+  pinMode(13, OUTPUT);          // sets the digital pin 13 as output
+}
+
+void loop()
+{
+  digitalWrite(13, HIGH);       // sets the digital pin 13 on
+  delay(1000);                  // waits for a second
+  digitalWrite(13, LOW);        // sets the digital pin 13 off
+  delay(1000);                  // waits for a second
+}
+/*----------------------------------------------------------------------------*/
+6、注意和警告:
+   模拟输入引脚可以用作数字引脚，如A0，A1等。
