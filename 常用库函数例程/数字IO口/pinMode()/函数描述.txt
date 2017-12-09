@@ -1,0 +1,31 @@
+1、句法:
+   void pinMode (uint8_t pin, uint8_t mode);
+2、描述:
+   将指定的引脚配置为输入或输出模式。
+   从Arduino 1.0.1开始，可以使用INPUT_PULLUP模式启用内部上拉电阻。
+此外，INPUT模式禁止内部上拉。
+3、参数:
+   pin 引脚编号
+   mode: INPUT, OUTPUT, 或 INPUT_PULLUP.
+4、返回值:
+   无。
+5、示例代码:
+   目标:使数字引脚13配置为输出，并将其在高电平和低电平之间转换。
+
+/*----------------------------------------------------------------------------*/
+void setup()
+{
+  pinMode(13, OUTPUT);          // sets the digital pin 13 as output
+}
+
+void loop()
+{
+  digitalWrite(13, HIGH);       // sets the digital pin 13 on
+  delay(1000);                  // waits for a second
+  digitalWrite(13, LOW);        // sets the digital pin 13 off
+  delay(1000);                  // waits for a second
+}
+/*----------------------------------------------------------------------------*/
+
+6、注意和警告:
+   模拟输入引脚可以用作数字引脚，如A0，A1等.
