@@ -1,6 +1,6 @@
 {
+    "sketch": "Source code\\motor\\motor.ino",
     "board": "arduino:avr:nano",
     "configuration": "cpu=atmega328",
-    "sketch": "Source code\\sensor\\sensor.ino",
     "port": "COM5"
 }
