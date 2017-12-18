@@ -1,8 +1,7 @@
 /*---------------宏定义部分------------------*/
 #define Vo 130    // Vo(0-255)
 #define Kp 0.85    // Kp(0-10)
-#define Ki 
-#define Kd
+
 /*--------------全局变量部分-----------------*/
 int IN[5]={-1,3,5,6,9};
 int Signal_left,Signal_right,p;
@@ -85,5 +84,5 @@ void setup() {
 }
 void loop() {
   // put your main code here, to run repeatedly:
-  pid(Vo);
+  p_concrol(Vo);
 }
