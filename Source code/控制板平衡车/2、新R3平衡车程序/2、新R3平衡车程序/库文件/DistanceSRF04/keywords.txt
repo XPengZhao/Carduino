@@ -1,0 +1,9 @@
+DistanceSRF04	KEYWORD1
+begin	KEYWORD2
+getDistanceTime	KEYWORD2
+getDistanceInch	KEYWORD2
+getDistanceCentimeter	KEYWORD2
+setAveraging	KEYWORD2
+setARefVoltage	KEYWORD2
+isCloser	KEYWORD2
+isFarther	KEYWORD2
