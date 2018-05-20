@@ -254,8 +254,8 @@ void kongzhi()
 
     switch(rxdata_pitch)
     {
-      case '1': front=500;back=0; break;
-      case '2': back=-500;front=0; break;
+      case '1': front=200;back=0; break;
+      case '2': back=-200;front=0; break;
       case '0': front=0;back=0; break;
     }
   }

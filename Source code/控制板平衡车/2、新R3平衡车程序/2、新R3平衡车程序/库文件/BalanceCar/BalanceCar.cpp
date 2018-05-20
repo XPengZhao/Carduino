@@ -28,15 +28,15 @@ float BalanceCar::turnspin(int turnleftflag,int turnrightflag,int spinleftflag,i
 {
   int spinonce = 0;
   float turnspeed = 0;
-	float rotationratio = 0;
-   float turnout_put = 0;
-	
+  float rotationratio = 0;
+  float turnout_put = 0;
+  
   if (turnleftflag == 1 || turnrightflag == 1 || spinleftflag == 1 || spinrightflag == 1)
   {
     if (spinonce == 0)                             //旋转前判断当前车速，增强小车适应性。
     {
       turnspeed = ( pulseright + pulseleft);                      //小车当前车速 脉冲表示
-	  spinonce++;
+    spinonce++;
     }
 
     if (turnspeed < 0)                                 //小车当前速度绝对值
@@ -77,11 +77,11 @@ float BalanceCar::turnspin(int turnleftflag,int turnrightflag,int spinleftflag,i
   if (turnout < turnmin) turnout = turnmin;//幅值最小值设置
 
   turnout_put = -turnout * kpturn - Gyroz * kdturn;//旋转PD算法控制 融合速度和Z轴旋转定位。
-	return turnout_put;
+  return turnout_put;
 }
 
 void BalanceCar::pwma(double speedoutput,float rotationoutput,float angle,float angle6,int turnleftflag,int turnrightflag,int spinleftflag,int spinrightflag,
-	int f,int b,float accelz,int Pin1,int Pin2,int Pin3,int Pin4,int PinPWMA,int PinPWMB)
+  int f,int b,float accelz,int Pin1,int Pin2,int Pin3,int Pin4,int PinPWMA,int PinPWMB)
 {
 
   pwm1 = -angleoutput - speedoutput - rotationoutput; //Left电机PWM输出值
@@ -169,15 +169,15 @@ void BalanceCar::pwma(double speedoutput,float rotationoutput,float angle,float 
 //      }
 //		}
 
-		  if (angle6 > 3 || angle6 < -3 &&turnleftflag == 0 && turnrightflag == 0 && spinleftflag == 0 && spinrightflag == 0 && f == 0 && b == 0)
+      if (angle6 > 3 || angle6 < -3 &&turnleftflag == 0 && turnrightflag == 0 && spinleftflag == 0 && spinrightflag == 0 && f == 0 && b == 0)
   {
            if(stopl + stopr > 1500||stopl + stopr <- 1500)
    {
     pwm1 = 0;
     pwm2 = 0;
-	flag1=1;
+  flag1=1;
 
-	}
+  }
   }
   else 
   {

@@ -105,7 +105,7 @@ void loop() {
   // Serial.print("),\tPitch:");
   //Serial.print(fNewPitch); Serial.print('(');
   //Serial.print(fPitchRate); Serial.print(")\n");
-  delay(10);
+  delay(2);
 }
 
 //向MPU6050写入一个字节的数据
