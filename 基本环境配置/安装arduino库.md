@@ -80,9 +80,9 @@
     - examples
 
 即：  
-> My Documents\Arduino\libraries\ArduinoParty\ArduinoParty.cpp
-> My Documents\Arduino\libraries\ArduinoParty\ArduinoParty.h
-> My Documents\Arduino\libraries\ArduinoParty\examples
+> My Documents\Arduino\libraries\ArduinoParty\ArduinoParty.cpp  
+> My Documents\Arduino\libraries\ArduinoParty\ArduinoParty.h  
+> My Documents\Arduino\libraries\ArduinoParty\examples  
 
 文件夹中可能不仅仅包括.cpp和.h文件，你只需要确保所有文件都在该文件夹中即可。（若直接将.cpp和.h文件导入库文件夹，或是放入其他文件夹中，库将无法正常运行.）例如：
 
