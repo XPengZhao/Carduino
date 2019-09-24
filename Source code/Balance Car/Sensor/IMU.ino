@@ -1,10 +1,3 @@
-
-
-// 本代码版权归Devymex所有，以GNU GENERAL PUBLIC LICENSE V3.0发布
-// http://www.gnu.org/licenses/gpl-3.0.en.html
-// 相关文档参见作者于知乎专栏发表的原创文章：
-// http://zhuanlan.zhihu.com/devymex/20082486
-
 //连线方法
 //MPU-UNO
 //VCC-VCC
@@ -100,11 +93,6 @@ void loop() {
   {
     Serial.print(0);
   }
-  //Serial.print('(');
-  //Serial.print(fRollRate);
-  // Serial.print("),\tPitch:");
-  //Serial.print(fNewPitch); Serial.print('(');
-  //Serial.print(fPitchRate); Serial.print(")\n");
   delay(2);
 }
 
